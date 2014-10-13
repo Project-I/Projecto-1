@@ -1,0 +1,7 @@
+Vindinium 
+
+Vindinium é um jogo multi-player, em que, cada jogador tem o seu herói. Esse herói pode mover-se no mapa, e o objectivo do jogo é obter o maior número de gold possível. Para isso, este terá de controlar uma mina. Estas minas estão dispersas ao longo do mapa, e para o herói assumir controlo da mesma, tem de derrotar o goblin que a protege.  Por cada mina controlada recebe 1 gold por turno. 
+  Os heróis podem-se atacar entre si, e caso um morra, este irá fazer respawn automaticamente enquanto que o herói que o matou irá apoderar-se das minas que ele controlava.
+
+
+O objectivo deste projecto é criar um bot competitivo 
