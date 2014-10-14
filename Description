@@ -4,4 +4,18 @@ Vindinium é um jogo multi-player, em que, cada jogador tem o seu herói. Esse h
   Os heróis podem-se atacar entre si, e caso um morra, este irá fazer respawn automaticamente enquanto que o herói que o matou irá apoderar-se das minas que ele controlava.
 
 
-O objectivo deste projecto é criar um bot competitivo .
+O objectivo deste projecto é criar um bot competitivo. Um exemplo de um bot, que é nos fornecido como exemplo, é o seguinte:
+
+Class RandomBot(Bot):
+
+    def move(self, state):
+        game = Game(state)
+        dirs = ['Stay', 'North', 'South', 'East', 'West']
+        return choice(dirs)
+        
+Obviamente, este código é muito simples e limita-se a movimentar o boneco aleatoriamente no mapa. O nosso objectivo será fazê-lo mover com um propósito, como por exemplo chegar à mina mais próxima o mais rápido possível.
+
+Para tal, vamos se basear no algoritmo A* (A estrela). Este é bastante usado em jogos, para encontrar caminhos desde um ponto inicial até um final.
+O algoritmo em si basea-se nos seguintes passos:
+
+1 - 
