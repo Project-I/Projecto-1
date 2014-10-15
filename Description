@@ -38,7 +38,7 @@ Verificam-se os seus adjacentes, ignorando aqueles que não podem ser acedidos, 
 Nos casos em que um quadrado adjacente já se encontra na lista dos visitados, compara-se os valores de G. Caso o seu valor de G seja menor que o actual, passamos a utiliza-lo como "posição actual", pois o caminho desde o ponto inicial até este é menor. 
 
 O processo repete-se até que o quadrado final seja adicionado à lista fechada. 
-Agora, é fazer o inverso e seguir os "pais" de cada quadrado até ao inicial e teremos o percurso a seguir. 
+Agora, é fazer o inverso e seguir os "pais" de cada quadrado até ao inicial e teremos o percurso a seguir.
 
 
 
