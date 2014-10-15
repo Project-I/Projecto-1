@@ -2,7 +2,7 @@ Vindinium
 
 Vindinium é um jogo multi-player, em que, cada jogador tem o seu herói. Esse herói pode mover-se no mapa, e o objectivo do jogo é obter o maior número de gold possível. Para isso, este terá de controlar uma mina. Estas minas estão dispersas ao longo do mapa, e para o herói assumir controlo da mesma, tem de derrotar o goblin que a protege.  Por cada mina controlada recebe 1 gold por turno. 
   Os heróis podem-se atacar entre si, e caso um morra, este irá fazer respawn automaticamente enquanto que o herói que o matou irá apoderar-se das minas que ele controlava.
-
+Mais informações relativas ao jogo podem ser encontradas aqui: http://vindinium.org/doc
 
 O objectivo deste projecto é criar um bot competitivo. Um exemplo de um bot, que é nos fornecido como exemplo, é o seguinte:
 
@@ -15,7 +15,33 @@ Class RandomBot(Bot):
         
 Obviamente, este código é muito simples e limita-se a movimentar o boneco aleatoriamente no mapa. O nosso objectivo será fazê-lo mover com um propósito, como por exemplo chegar à mina mais próxima o mais rápido possível.
 
-Para tal, vamos se basear no algoritmo A* (A estrela). Este é bastante usado em jogos, para encontrar caminhos desde um ponto inicial até um final.
-O algoritmo em si basea-se nos seguintes passos:
+Para tal, vamos se basear no algoritmo A* (A estrela). Este é bastante usado em jogos, para encontrar o caminho mais curto desde um ponto inicial até um final.
+O mapa em si, não é mais que uma grelha a duas dimensões que pode conter alguns obstáculos. 
 
-1 - 
+O algoritmo A* baseia-se nos seguintes conceitos:
+
+Iremos dividir os quadrados da grelha entre duas listas, vazias no princípio: uma lista que irá conter os quadrados "fechados" ou por outras palavras, já visitados, e outra com os quadrados "abertos", ou seja, por visitar. 
+
+Começa-se por adicionar o quadrado de partida, A,  à lista aberta. 
+De seguida, verifica-se os quadrados adjacentes a A. Adiciona-se aqueles que podem ser acedidos à lista. 
+Remove-se o quadrado inicial A da lista aberta, e coloca-se na lista "fechada". "A" será referenciado como "pai" dos seus adjacentes, isto é, é o quadrado de onde se veio. Isto vai ser útil mais à frente.
+
+A escolha do quadrado adjacente será feita baseando-se na seguinte equação:
+F = G + H
+
+Sendo que:
+ G é o custo associado a passar de um quadrado, para o seu adjacente (por exemplo, 10)
+H é uma estimativa da distância do ponto onde se encontramos, até ao ponto onde pretendemos chegar. 
+
+Olhando para a nossa lista aberta, escolhe-se o quadrado que tiver menor valor de F. Este é removido, e colocado na lista dos já visitados. 
+Verificam-se os seus adjacentes, ignorando aqueles que não podem ser acedidos, ou que já se encontram na lista de visitados. Os restantes são adicionados à lista dos não visitados.
+Nos casos em que um quadrado adjacente já se encontra na lista dos visitados, compara-se os valores de G. Caso o seu valor de G seja menor que o actual, passamos a utiliza-lo como "posição actual", pois o caminho desde o ponto inicial até este é menor. 
+
+O processo repete-se até que o quadrado final seja adicionado à lista fechada. 
+Agora, é fazer o inverso e seguir os "pais" de cada quadrado até ao inicial e teremos o percurso a seguir. 
+
+
+
+
+ 
+
